@@ -56,6 +56,39 @@ async function build() {
             // Highlight selected country
             country.classList.add('selected');
 
+            // Small country preview in sidebar
+const preview = document.getElementById('country-preview');
+
+preview.innerHTML = '';
+
+const previewSvg = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'svg'
+);
+
+previewSvg.setAttribute(
+    'viewBox',
+    country.getBBox().x + ' ' +
+    country.getBBox().y + ' ' +
+    country.getBBox().width + ' ' +
+    country.getBBox().height
+);
+
+previewSvg.setAttribute('width', '100%');
+previewSvg.setAttribute('height', '120');
+
+const clone = country.cloneNode(true);
+
+clone.classList.remove('selected');
+
+clone.setAttribute('fill', '#7A1706');
+clone.setAttribute('stroke', '#ffffff');
+clone.setAttribute('stroke-width', '1');
+
+previewSvg.appendChild(clone);
+
+preview.appendChild(previewSvg);
+
             // Open sidebar
             infoPanel.classList.add('visible');
 
