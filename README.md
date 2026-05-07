@@ -1,7 +1,7 @@
 # From Pittsburgh To...
 An interactive world map that displays tourism data from Pittsburgh to different countries, letting users click on highlighted nations to see travel costs and visitor statistics.
 
-Live Preview Here: [A Flight From Pittsbugh]("https://nicolas-fiore.github.io/web-dev-final/")
+Live Preview Here: [A Flight From Pittsbugh](https://nicolas-fiore.github.io/web-dev-final/)
 
 
 * Tourism Spending Data
