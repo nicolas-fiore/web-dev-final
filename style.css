@@ -1,11 +1,11 @@
-*, *::before, *::after {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #f4f0e8;
     color: #1a1a1a;
     height: 100vh;
@@ -14,7 +14,7 @@ body {
     overflow: hidden;
 }
 
-/* ── Header ── */
+/* Header */
 header {
     padding: 14px 28px 10px;
     border-bottom: 2px solid #1a1a1a;
@@ -35,14 +35,14 @@ header .subtitle {
     font-style: italic;
 }
 
-/* ── Layout ── */
+/* Main Layout */
 #main-layout {
     display: flex;
     flex: 1;
     min-height: 0;
 }
 
-/* ── Map ── */
+/* Map Container */
 #map-container {
     flex: 1;
     display: flex;
@@ -59,7 +59,6 @@ header .subtitle {
     height: 100%;
 }
 
-/* All paths default */
 #map-container svg path {
     fill: #c8c0b0;
     stroke: #fff;
@@ -84,14 +83,14 @@ header .subtitle {
     fill: #2a4d8f;
 }
 
-/* ── Info Panel ── */
+/* Info Panel */
 #info-panel {
     width: 340px;
     min-width: 340px;
     background: #f4f0e8;
     border-left: 2px solid #1a1a1a;
     overflow-y: auto;
-    display: none; /* hidden until a country is clicked */
+    display: none;
     flex-direction: column;
 }
 
@@ -99,7 +98,7 @@ header .subtitle {
     display: flex;
 }
 
-/* Country mini-map preview */
+/* Country Preview */
 #country-preview {
     width: 100%;
     background: #dedad1;
@@ -119,7 +118,7 @@ header .subtitle {
     display: block;
 }
 
-/* Header row */
+/* Panel Header */
 #panel-header {
     display: flex;
     justify-content: space-between;
@@ -157,7 +156,7 @@ header .subtitle {
     color: #f4f0e8;
 }
 
-/* ── Stat Rows ── */
+/* Stats */
 #stats {
     display: flex;
     flex-direction: column;

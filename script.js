@@ -33,7 +33,7 @@ async function build() {
     const spending = document.getElementById('stat-spending');
     const avgSpend = document.getElementById('stat-avg-spend');
 
-    // Mark countries that have data with the has-data class (turns them red via CSS)
+    // Mark countries
     Object.keys(data).forEach(code => {
         const country = document.getElementById(code);
         if (country) {
@@ -41,7 +41,7 @@ async function build() {
         }
     });
 
-    // Click events — attached to ALL paths but we guard inside
+    // Click events 
     svg.querySelectorAll('path').forEach(country => {
         country.addEventListener('click', () => {
             const code = country.id;
@@ -56,7 +56,7 @@ async function build() {
             // Highlight selected country
             country.classList.add('selected');
 
-            // Small country preview in sidebar
+// country preview
 const preview = document.getElementById('country-preview');
 
 preview.innerHTML = '';
@@ -92,26 +92,15 @@ preview.appendChild(previewSvg);
             // Open sidebar
             infoPanel.classList.add('visible');
 
-            // Fill in panel — using the correct JSON field names
-            countryName.textContent = countryData.Entity || code;
-            miles.textContent = countryData.Miles_From_Pitt
-                ? Math.round(countryData.Miles_From_Pitt).toLocaleString() + ' mi'
-                : 'N/A';
-            oneWay.textContent = countryData.Single_Flight_Cost
-                ? '$' + Number(countryData.Single_Flight_Cost).toFixed(2)
-                : 'N/A';
-            roundTrip.textContent = countryData.Round_Flight_Cost
-                ? '$' + Number(countryData.Round_Flight_Cost).toFixed(2)
-                : 'N/A';
-            arrivals.textContent = countryData.Arrivals
-                ? Number(countryData.Arrivals).toLocaleString()
-                : 'N/A';
-            spending.textContent = countryData.Spending
-                ? '$' + (countryData.Spending / 1e9).toFixed(1) + 'B'
-                : 'N/A';
-            avgSpend.textContent = countryData.Average_Spending_Per
-                ? '$' + Number(countryData.Average_Spending_Per).toFixed(2)
-                : 'N/A';
+            // Content
+            countryName.textContent = countryData.Entity;
+            miles.textContent = countryData.Miles_From_Pitt.toLocaleString() + ' mi';
+            oneWay.textContent = '$' + countryData.Single_Flight_Cost.toLocaleString();
+            roundTrip.textContent = '$' + countryData.Round_Flight_Cost.toLocaleString();
+            arrivals.textContent = countryData.Arrivals.toLocaleString();
+            spending.textContent = '$' + countryData.Spending.toLocaleString();
+            avgSpend.textContent = '$' + countryData.Average_Spending_Per.toLocaleString();
+            // Content
         });
     });
 

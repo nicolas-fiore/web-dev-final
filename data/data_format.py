@@ -9,7 +9,7 @@ numbers = numbers.drop('Entity', axis=1)
 full_data = spending.merge(numbers, left_on=["Year", "Code"], right_on=["Year", "Code"], how='left')
 full_data = full_data.loc[full_data['Year'] == 2024]
 
-full_data['Average_Spending_Per'] = (full_data['Spending'] / full_data['Arrivals']).round(decimals=3)
+full_data['Average_Spending_Per'] = (full_data['Spending'] / full_data['Arrivals']).round(decimals=2)
 full_data = full_data.merge(cords, how='left', on='Entity')
 full_data = full_data.dropna()
 
@@ -28,9 +28,9 @@ def calculate(lat1, lon1, lat2, lon2):
 usa_lat, usa_long = 40.4406, -79.9959
 
 
-full_data['Miles_From_Pitt'] = full_data.apply(lambda row: calculate(usa_lat, usa_long, row['latitude'], row['longitude']), axis=1)
-full_data['Single_Flight_Cost'] = 160 + (full_data['Miles_From_Pitt'] * 0.095)
-full_data['Round_Flight_Cost'] = ((full_data['Single_Flight_Cost']) * 2).round(2)
+full_data['Miles_From_Pitt'] = full_data.apply(lambda row: calculate(usa_lat, usa_long, row['latitude'], row['longitude']), axis=1).astype(int)
+full_data['Single_Flight_Cost'] = (160 + (full_data['Miles_From_Pitt'] * 0.095)).round(2)
+full_data['Round_Flight_Cost'] = ((full_data['Single_Flight_Cost']) * 2)
 full_data[['Code', 'country']] = full_data[['country', "Code"]]
 full_data = full_data.set_index("Code")
 full_data.to_json('./data/full_data.json', indent=4, orient='index')
