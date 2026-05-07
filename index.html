@@ -3,12 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project</title>
-    
+    <title>From Pittsburgh to...</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>From Pittsburgh to...</h1> <!--Change title if need this is what i came up with-->
+    <header>
+        <h1>From Pittsburgh to...</h1>
+        <p class="subtitle">Click a highlighted country to explore travel data</p>
+    </header>
+
+    <div id="main-layout">
+        <div id="map-container"></div>
+
+        <aside id="info-panel">
+            <div id="country-preview"></div>
+            <div id="panel-header">
+                <h2 id="country-name"></h2>
+                <button id="close-btn" title="Close">✕</button>
+            </div>
+            <div id="stats">
+                <div class="stat-row">
+                    <span class="stat-label">Distance from Pittsburgh</span>
+                    <span class="stat-value" id="stat-miles"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">One-way flight est.</span>
+                    <span class="stat-value" id="stat-one-way"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Round-trip flight est.</span>
+                    <span class="stat-value" id="stat-round-trip"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Tourist arrivals (2024)</span>
+                    <span class="stat-value" id="stat-arrivals"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Total tourism spending</span>
+                    <span class="stat-value" id="stat-spending"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Avg. spend per tourist</span>
+                    <span class="stat-value" id="stat-avg-spend"></span>
+                </div>
+            </div>
+        </aside>
+    </div>
 </body>
 </html>

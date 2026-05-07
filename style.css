@@ -1,3 +1,193 @@
-* {
-    background-color: aliceblue;
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #f4f0e8;
+    color: #1a1a1a;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ── Header ── */
+header {
+    padding: 14px 28px 10px;
+    border-bottom: 2px solid #1a1a1a;
+    background: #f4f0e8;
+    flex-shrink: 0;
+}
+
+header h1 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+}
+
+header .subtitle {
+    font-size: 0.82rem;
+    color: #666;
+    margin-top: 2px;
+    font-style: italic;
+}
+
+/* ── Layout ── */
+#main-layout {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+/* ── Map ── */
+#map-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8e4dc;
+    overflow: hidden;
+    min-width: 0;
+}
+
+#map-container svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* All paths default */
+#map-container svg path {
+    fill: #c8c0b0;
+    stroke: #fff;
+    stroke-width: 0.5;
+    cursor: default;
+}
+
+#map-container svg path.has-data {
+    fill: #7A1706;
+    cursor: pointer;
+}
+
+#map-container svg path.has-data:hover {
+    fill: #9e2009;
+}
+
+#map-container svg path.selected {
+    fill: #2a4d8f;
+}
+
+#map-container svg path.selected:hover {
+    fill: #2a4d8f;
+}
+
+/* ── Info Panel ── */
+#info-panel {
+    width: 340px;
+    min-width: 340px;
+    background: #f4f0e8;
+    border-left: 2px solid #1a1a1a;
+    overflow-y: auto;
+    display: none; /* hidden until a country is clicked */
+    flex-direction: column;
+}
+
+#info-panel.visible {
+    display: flex;
+}
+
+/* Country mini-map preview */
+#country-preview {
+    width: 100%;
+    background: #dedad1;
+    border-bottom: 1.5px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    min-height: 150px;
+}
+
+#country-preview svg {
+    max-width: 260px;
+    max-height: 120px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Header row */
+#panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px 12px;
+    border-bottom: 1.5px solid #ccc;
+    gap: 8px;
+}
+
+#country-name {
+    font-size: 1.35rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+#close-btn {
+    background: none;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #1a1a1a;
+    line-height: 1;
+    padding: 0;
+}
+
+#close-btn:hover {
+    background: #1a1a1a;
+    color: #f4f0e8;
+}
+
+/* ── Stat Rows ── */
+#stats {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    gap: 16px;
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    font-size: 0.76rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+}
+
+.stat-value {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
 }
