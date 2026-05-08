@@ -672,8 +672,8 @@
         "latitude":40.4406,
         "longitude":-79.9959,
         "Miles_From_Pitt":0,
-        "Single_Flight_Cost":0,
-        "Round_Flight_Cost":0
+        "Single_Flight_Cost":160.0,
+        "Round_Flight_Cost":320.0
     },
     "UZ":{
         "Entity":"Uzbekistan",
